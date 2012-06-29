@@ -14,7 +14,13 @@ gem 'ruby-debug'
 gem 'capybara'
 gem 'rspec'
 gem 'cucumber'
-# gem 'selenium-webdriver'
+
+# selenium testing
+gem 'selenium-webdriver'
 
 # Experimental headless testing
 gem 'capybara-mechanize'
+gem 'poltergeist'
+
+# html_reports class
+gem 'launchy'
