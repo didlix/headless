@@ -3,7 +3,9 @@ headless
 
 This is a very basic example of headless BDD testing using Cucumber, Capybara, Mechanize and RSpec.
 
-Usage:
+Usage (Only tested on Mac):
+
+Install PhantomJS: brew install phantomjs
 
 Clone this repository onto your system
 
