@@ -15,6 +15,8 @@ Install Ruby Enterprise Edition ( rvm install ree; rvm use ree --default ) - The
 
 From the root directory, run `bundle install`
 
+Now run `selenium install`
+
 This will install the required ruby gems.
 
 Setup a vhost on your system, and add a line to your hosts file so you can access index.html from a web browser. You can configure the hostname in 'config/environment.yml'
@@ -23,4 +25,5 @@ Run `cucumber` and watch the tests pass and fail.
 
 
 With Love,
+
 didlix
