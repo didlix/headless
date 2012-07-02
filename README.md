@@ -3,7 +3,12 @@ headless
 
 This is a very basic example of headless BDD testing using Cucumber, Capybara, Mechanize and RSpec.
 
+
+
 Usage (Only tested on Mac):
+
+## Install
+
 
 Install PhantomJS: brew install phantomjs
 
@@ -22,6 +27,23 @@ This will install the required ruby gems.
 Setup a vhost on your system, and add a line to your hosts file so you can access index.html from a web browser. You can configure the hostname in 'config/environment.yml'
 
 Run `cucumber` and watch the tests pass and fail.
+
+
+
+## Chrome Testing
+
+Install a chrome selenium driver by downloading it and placing it somewhere in your PATH.
+
+http://code.google.com/p/chromedriver/downloads/list
+
+
+## Safari Testing
+
+Go have some fun installing: 
+
+http://code.google.com/p/selenium/wiki/SafariDriver
+
+
 
 
 With Love,
