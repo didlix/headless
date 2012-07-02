@@ -14,6 +14,8 @@ gem 'ruby-debug'
 gem 'capybara'
 gem 'rspec'
 gem 'cucumber'
+gem 'selenium'
+gem 'selenium-client'
 
 # selenium testing
 gem 'selenium-webdriver'
