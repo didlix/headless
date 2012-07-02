@@ -31,22 +31,18 @@ namespace :qa do
 
       Cucumber::Rake::Task.new :firefox, "run all tests with firefox, add @tags to the end as required" do |task|
         task.profile = "firefox"
-        @capabilities_options['browser_name'] = 'firefox'
       end
 
       Cucumber::Rake::Task.new :chrome, "run all tests with chrome, add @tags to the end as required" do |task|
         task.profile = "chrome"
-        @capabilities_options['browser_name'] = 'chrome'
       end
 
       Cucumber::Rake::Task.new :safari, "run all tests with safari, add @tags to the end as required" do |task|
         task.profile = "safari"
-        @capabilities_options['browser_name'] = 'safari'
       end
 
       Cucumber::Rake::Task.new :ie, "run all tests with Internet Explorer, add @tags to the end as required" do |task|
         task.profile = "ie"
-        @capabilities_options['browser_name'] = 'ie'
       end   
             
     end
