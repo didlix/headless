@@ -6,4 +6,4 @@ ie: BROWSER_NAME=ie DRIVER=selenium
 chrome: BROWSER_NAME=chrome DRIVER=selenium
 safari: BROWSER_NAME=safari DRIVER=selenium
 firefox: BROWSER_NAME=firefox DRIVER=selenium
-poltergeist: DRIVER=poltergeist
+poltergeist: DRIVER=poltergeist BROWSER_NAME=poltergeist

@@ -19,37 +19,20 @@ when "selenium"
 	require 'selenium-webdriver'
 end
 
+browser = ENV['BROWSER_NAME'].to_sym
 
+# Setup Selenium Browsers
 if ENV['DRIVER'] == 'selenium'
-	@capabilities_options ||= {}
-	@capabilities_options[:browser_name] = ENV['BROWSER_NAME'] #default browser
 
-	capabilities = Selenium::WebDriver::Remote::Capabilities.new(@capabilities_options)
+	Capybara.register_driver browser do |app|
+	    Capybara::Selenium::Driver.new(app, :browser => browser)
+	end
+
 end
-
-# make the new Remote Capabilities object
-
 
 @parsed_yaml = YAML.load(File.open("config/environment.yml"))
 
-# Setup Selenium Browsers
-Capybara.register_driver :chrome do |app|
-    Capybara::Selenium::Driver.new(app, :browser => :chrome)
-end
-
-Capybara.register_driver :firefox do |app|
-    Capybara::Selenium::Driver.new(app, :browser => :firefox)
-end
-
-Capybara.register_driver :ie do |app|
-    Capybara::Selenium::Driver.new(app, :browser => :ie)
-end
-
-Capybara.register_driver :safari do |app|
-    Capybara::Selenium::Driver.new(app, :browser => :safari)
-end
-
 Capybara.configure do |config|
   config.app_host = @parsed_yaml['local']['app_host']
-  config.default_driver = ENV['DRIVER'].to_sym
+  config.default_driver = browser
 end
