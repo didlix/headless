@@ -11,61 +11,42 @@ include Term::ANSIColor
 
 @capabilities_options ||= {}
 
-namespace :qa do
-
-  namespace :tests do
-
-
-    # Produce a Cucumber HTML report
-    namespace :report do
-
-      desc "run all tests with phantomJS (headless, fast), add @tags to the end as required"
-      task :default do
-
-      end
-
-      Cucumber::Rake::Task.new :poltergeist, "run all tests with phantomJS (headless, fast), add @tags to the end as required" do |task|
-        # task.cucumber_opts = "--tags @wip"
-        task.profile = "poltergeist"
-      end
-
-      Cucumber::Rake::Task.new :firefox, "run all tests with firefox, add @tags to the end as required" do |task|
-        task.profile = "firefox"
-      end
-
-      Cucumber::Rake::Task.new :chrome, "run all tests with chrome, add @tags to the end as required" do |task|
-        task.profile = "chrome"
-      end
-
-      Cucumber::Rake::Task.new :safari, "run all tests with safari, add @tags to the end as required" do |task|
-        task.profile = "safari"
-      end
-
-      Cucumber::Rake::Task.new :ie, "run all tests with Internet Explorer, add @tags to the end as required" do |task|
-        task.profile = "ie"
-      end   
-            
-    end
-
-  end
-
-end
-
-
 require 'launchy'
 
-class Temppath
+namespace :tests do
 
-  def create_tempoary_path
-    @tempoary_path = "tmp/" + (0...8).map{65.+(rand(25)).chr}.join + ".html"
-  end
+  Cucumber::Rake::Task.new :run, "Quickly run tests with PhantomJS, displaying output to the console" do |task|
+    task.profile = "poltergeist"
+    task.cucumber_opts = "--format pretty --format html -o dev_poltergeist_report.html"
+  end   
 
-  def get_tempoary_path
-    @tempoary_path
-  end
+  namespace :report do
 
-  def open_report
-    Launchy.open Pathname.pwd + "/" + self.get_tempoary_path
+    Cucumber::Rake::Task.new :poltergeist, "run all tests with phantomJS (headless, fast), add @tags to the end as required" do |task|
+      task.profile = "poltergeist"
+      task.cucumber_opts = "--format html -o poltergeist_report.html"
+    end
+
+    Cucumber::Rake::Task.new :firefox, "run all tests with firefox, add @tags to the end as required" do |task|
+      task.profile = "firefox"
+      task.cucumber_opts = "--format html -o firefox_report.html"
+    end
+
+    Cucumber::Rake::Task.new :chrome, "run all tests with chrome, add @tags to the end as required" do |task|
+      task.profile = "chrome"
+      task.cucumber_opts = "--format html -o chrome_report.html"
+    end
+
+    Cucumber::Rake::Task.new :safari, "run all tests with safari, add @tags to the end as required" do |task|
+      task.profile = "safari"
+      task.cucumber_opts = "--format html -o safari_report.html"
+    end
+
+    Cucumber::Rake::Task.new :ie, "run all tests with Internet Explorer, add @tags to the end as required" do |task|
+      task.profile = "ie"
+      task.cucumber_opts = "--format html -o ie_report.html"
+    end   
+          
   end
 
 end
