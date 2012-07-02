@@ -3,7 +3,7 @@ When /^I visit "(.*?)"$/ do |place|
 end
 
 Then /^I should see "(.*?)"$/ do |content|
-  page.should have content
+	page.should have_content content
 end
 
 Given /^I am on the home page$/ do
